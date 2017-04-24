@@ -1,0 +1,6 @@
+#ifndef ARRAYALLOCATION_H_INCLUDED
+#define ARRAYALLOCATION_H_INCLUDED
+
+double** arrayallocation(int);
+
+#endif // ARRAYALLOCATION_H_INCLUDED

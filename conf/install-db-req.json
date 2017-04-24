@@ -1,0 +1,7 @@
+{   
+"LogFiles" : 
+	[
+	"DROP TABLE IF EXISTS LogFiles" ,
+	"CREATE TABLE LogFiles(Id INTEGER PRIMARY KEY ,Name TEXT ,Tchunk INTEGER ,Cchunk INTEGER,State INTEGER )"
+	]
+}
