@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if (IE 9)]><html class="no-js ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en-US"> <!--<![endif]-->
+<head>
+
+<!-- Meta Tags -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>Drone Log Analyser - L2S2</title>   
+
+<meta name="description" content="Interface d'analyse de logfiles" /> 
+
+<!-- Mobile Specifics -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="MobileOptimized" content="320"/>   
+
+<!-- Mobile Internet Explorer ClearType Technology -->
+<!--[if IEMobile]>  <meta http-equiv="cleartype" content="on">  <![endif]-->
+
+
+<style> /* set the CSS */
+
+body { font: 12px Arial;}
+
+path { 
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+.line1 {
+	stroke: orange;
+    stroke-width: 2;
+    fill: none;
+}
+
+.line2 {
+	stroke: green;
+    stroke-width: 2;
+    fill: none;
+
+}
+
+.line3 {
+	stroke: yellow;
+    stroke-width: 2;
+    fill: none;
+
+}
+
+.line4 {
+	stroke:  blue;
+    stroke-width: 2;
+    fill: none;
+
+}
+.line5 {
+	stroke: red;
+    stroke-width: 2;
+    fill: none;
+	
+
+}
+</style>
+
+</style>
+<!-- Bootstrap -->
+<link href="_include/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Main Style -->
+<link href="_include/css/main.css" rel="stylesheet">
+
+<!-- Supersized -->
+<link href="_include/css/supersized.css" rel="stylesheet">
+<link href="_include/css/supersized.shutter.css" rel="stylesheet">
+
+<!-- FancyBox -->
+<link href="_include/css/fancybox/jquery.fancybox.css" rel="stylesheet">
+
+<!-- Font Icons -->
+<link href="_include/css/fonts.css" rel="stylesheet">
+
+<!-- Shortcodes -->
+<link href="_include/css/shortcodes.css" rel="stylesheet">
+
+<!-- Responsive -->
+<link href="_include/css/bootstrap-responsive.min.css" rel="stylesheet">
+<link href="_include/css/responsive.css" rel="stylesheet">
+
+<!-- Supersized -->
+<link href="_include/css/supersized.css" rel="stylesheet">
+<link href="_include/css/supersized.shutter.css" rel="stylesheet">
+
+<!-- Google Font -->
+<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic,900' rel='stylesheet' type='text/css'>
+
+<!-- Fav Icon -->
+<link rel="shortcut icon" href="#">
+
+<link rel="apple-touch-icon" href="#">
+<link rel="apple-touch-icon" sizes="114x114" href="#">
+<link rel="apple-touch-icon" sizes="72x72" href="#">
+<link rel="apple-touch-icon" sizes="144x144" href="#">
+
+<!-- Modernizr -->
+<script src="_include/js/modernizr.js"></script>
+</head>
+
+<body>
+
+<!-- This section is for Splash Screen -->
+<div class="ole">
+<section id="jSplash">
+	<div id="circle"></div>
+</section>
+</div>
+<!-- End of Splash Screen -->
+
+<!-- Header -->
+<header>
+    <div class="sticky-nav">
+    	<a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
+        
+        <div id="logo">
+        	<a id="goUp" href="#home-slider" title="Drone Log Analyser - L2S2">Drone Log Analyzer - L2S2</a>
+        </div>
+        
+        <nav id="menu">
+        	<ul id="menu-nav">
+            	<li class="current"><a href="#about">Analyze</a></li>
+                <li><a href="#work">Results</a></li>
+               <!-- <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+				<li><a href="shortcodes.html" class="external">Shortcodes</a></li>
+                -->
+            </ul>
+        </nav>
+        
+    </div>
+</header>
+<!-- End Header -->
+<!-- About Section -->
+<div id="about" class="page-alternate">
+<div class="container">
+    <!-- Title Page -->
+    <div class="row">
+        <div class="span12">
+            <div class="title-page">
+				<h2 class="title">1- Select the type of log</h2>
+				<div id="options" class="span12" >
+						<div class="row">
+							<div class="span3">
+							</div>
+							<div  class="span9">
+								<div class="row">
+									<div class="span2">
+										<label class="radio-inline"><input onclick="choosetype();" type="radio" id="PixHawk_2" ><h3> Pixhawk 2</h3></label>
+									</div>
+									<div class="span2">
+										<label class="radio-inline"><input onclick="choosetype();" type="radio" id="ArduCopter_v3"><h3> ArduCopter v3</h3></label>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+				</div>
+			
+			
+				
+                <h2 class="title">2- Select a file to analyze</h2>
+            
+				
+                 <div  id="toremove" class="span12">
+					 <input  class="button button-large" id="browseButton" type="file"></input>
+					 <a id="lunchanalyse" class="button button-large" onclick="analyse();" href="#work" >Start analysis</a>
+				</div>
+				
+				<div   class="row">
+				    <form>
+					
+					
+				</div>
+				
+				
+		
+            </div>
+        </div>
+    </div>
+    <!-- End Title Page -->
+</div>
+</div>
+<!-- End About Section -->
+
+<!-- Our Work Section -->
+<div id="work" class="page">
+	<div class="container">
+    	<!-- Title Page -->
+        <div class="row">
+            <div class="span12">
+                <div class="title-page">
+                    <h2 class="title">3 - Result of analysis</h2>
+                    <h3 class="title-description">Visualize the results of the analysis</h3>
+					<!-- The global progress bar -->
+					<div id="myprogressdiv" style="height:15px;width:50%;overflow:hidden;background:white;display:none;margin-left: auto;margin-right: auto;" >
+						<iframe id="myprogress" scrolling="no"  width="100%" height="20px" frameborder="0px" src="progressbar.html"></iframe>
+					</div>
+
+                </div>
+            </div>
+	
+            </div>
+        </div>
+        <!-- End Title Page -->
+        
+        <!-- Portfolio Projects -->
+        <div class="row">
+        	<div class="span3">
+            	<!-- Filter -->
+                <nav id="options" class="work-nav">
+                    <ul id="filters" class="option-set" data-option-key="filter">
+                    	<li class="type-work">Types of problems</li>
+						<li><a onclick="showcompassoffsetdiv();" href="#compassofssetdiv" >Compass Offset</a></li>
+                        <li><a onclick="showcompassdiv();" href="#compassdiv" >Compass</a></li>
+                        <li><a onclick="showvibfrationdiv();" href="#vibrationdiv" >Vibrations</a></li>
+                        <li><a onclick="showgpsdiv();" href="#gpsdiv" >GPS</a></li>
+                        <li><a onclick="showpowerdiv();" href="#powerdiv" >Power</a></li>
+						<li><a onclick="showmecdiv();" href="#mecdiv" >Mechanical errors</a></li>
+						<li><a onclick="showalldiv();" href="#alldiv" >All graphs</a></li>
+						<li  id="downloaderror" style="display:none;" ><a class="btn btn-primary" style="color:white;" href="" download>Dowload Error list</a></li>
+						
+						
+                    </ul>
+                </nav>
+                <!-- End Filter -->
+            </div>  
+			
+			<div class="span9"> 
+		 
+				
+						
+				<div id="sierror" ></div>
+				<h3 class="title-description" id="problemsdiv"> </h3>
+				<div id="results" style="width:75vw;">
+					
+				
+					<div id="compassofssetdiv" style="display:none;">
+						
+						<div id="compassofssetv2" style="display:none;">
+							<h3 class="title-description">Compass Offset</h3>
+							
+							<h4 class="title-description">
+								COMPASS_OFS_X ϵ [-150 ;15]</br>
+								COMPASS_OFS_Y ϵ [-150 ;15]</br>
+								COMPASS_OFS_Z ϵ [-150 ;15]</br>
+								
+							</h4>
+							<div id="compassoffsetv21"  ></div> 
+						</div>
+						
+						<div id="compassofssetv1" style="display:none;">
+							
+							<h3 class="title-description">Compass Ofsset</h3>
+							
+							<h4 class="title-description">
+							Ofsx ϵ [-150 ;15]</br>
+							Ofsy ϵ [-150 ;15]</br>
+							Ofsz ϵ [-150 ;15]</br>
+							</h4>
+							
+							
+							<div id="OfsXOfsYOfsZ" style="background:white;overflow:scroll;display:none;" > </div>
+							
+						</div>
+					</div>
+					<div id="compassdiv" style="display:none;">
+						
+						<h3 class="title-description">Compass</h3>
+						
+						<h4 class="title-description">
+							The value of mag_field = sqrt(MagX(2) + MagY(2)+ MagZ(2)) ϵ [120;550]</br>
+							
+						</h4>
+						
+						<div id="MagXMagYMagZ" style="background:white;overflow:scroll;display:none;" > 
+						
+						
+						</div>			
+						
+
+					
+					</div>
+					
+					<div id="vibrationdiv" style="display:none;">
+						
+						<h3 class="title-description">Vibration</h3>
+						
+						<h4 class="title-description">
+						AccX ϵ [-3 ;3]</br>
+						AccY ϵ [-3 ;3]</br>
+						AccZ ϵ [-3 ;3]</br>
+						</h4>
+						
+						<div id="AccXAccYAccZ" style="background:white;overflow:scroll;display:none;" > 
+						
+						
+						</div>
+
+					
+						
+					
+					</div>
+					
+					<div id="gpsdiv" style="display:none;">
+					
+						<h3 class="title-description">GPS</h3>
+						
+						
+						<h4 class="title-description">
+							Hdop should be less than 1.5 </br>
+							NSats should be greater than 9 
+						</h4>
+						
+						<div id="HdopNsats" style="background:white;overflow:scroll;display:none;" > 
+						
+						
+						</div>
+						
+						
+					</div>
+					
+					<div id="powerdiv" style="display:none;">
+					
+						
+						<h3 class="title-description">Power </h3>
+						
+						
+						<h4 class="title-description">
+							A Vcc variation of more than 150 is considered an error</br>
+						</h4>
+						
+						<div id="VCC" style="background:white;overflow:scroll;display:none;" > 
+						
+						
+						</div>		
+					
+					</div>
+					<div id="mecdiv" style="display:none;">
+						
+						<h3 class="title-description">Mechanical errors</h3>
+						
+						<div id="mechanicaldiv1" style="display:none;">
+						
+							<h3 class="title-description">DesRoll and Roll</h3>
+							<h4 class="title-description">
+							
+							The difference between DesRoll and Roll should be ϵ [-5;5]</br>
+							
+							</h4>
+							
+							<div id="mechanical1" style="background:white;overflow:scroll;display:none;" > 
+							
+							</div>
+							</br>
+						</div>
+						<div id="mechanicaldiv2" style="display:none;">
+							<h3 class="title-description">DesPitch and Pitch</h3>
+							<h4 class="title-description">
+							
+							
+							The difference between DesPitch and Pitch  should be ϵ [-5;5]</br>
+							
+							
+							</h4>
+							</br>
+							
+							<div id="mechanical2" style="background:white;overflow:scroll;display:none;" > 
+							
+							</div>	
+						</div>
+						
+						<div id="mechanicaldiv3" style="display:none;">
+							<h3 class="title-description">DesYaw and Yaw</h3>
+							<h4 class="title-description">
+							
+							The difference between DesYaw and Yaw  should be ϵ [-15;15]</br>
+							
+							</h4>
+							
+							<div id="mechanical3" style="background:white;overflow:scroll;display:none;" > 
+							
+							</div>
+							</br>
+						</div>
+						
+					</div>
+					<div id="alldiv" style="display:none;">
+						<h3 class="title-description">Toutes les graphes</h3>
+						<div id="result2">
+						</div>
+					</div>
+					
+					
+	
+					
+				</div>
+
+			</div>  
+              
+            
+        </div>
+        </div>
+        <!-- End Portfolio Projects -->
+    </div>
+</div>
+<!-- End Our Work Section -->
+<!-- Footer -->
+<footer>
+	<p class="credits">&copy;DroneLog Analyser | L2S2 - 2017</p>
+</footer>
+<!-- End Footer -->
+
+<!-- Back To Top -->
+<a id="back-to-top" href="#">
+	<i class="font-icon-arrow-simple-up"></i>
+</a>
+<!-- End Back to Top -->
+
+
+<!-- Js -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> <!-- jQuery Core -->
+<script src="_include/js/bootstrap.min.js"></script> <!-- Bootstrap -->
+<script src="_include/js/supersized.3.2.7.min.js"></script> <!-- Slider -->
+<script src="_include/js/waypoints.js"></script> <!-- WayPoints -->
+<script src="_include/js/waypoints-sticky.js"></script> <!-- Waypoints for Header -->
+<script src="_include/js/jquery.isotope.js"></script> <!-- Isotope Filter -->
+<script src="_include/js/jquery.fancybox.pack.js"></script> <!-- Fancybox -->
+<script src="_include/js/jquery.fancybox-media.js"></script> <!-- Fancybox for Media -->
+<script src="_include/js/jquery.tweet.js"></script> <!-- Tweet -->
+<script src="_include/js/plugins.js"></script> <!-- Contains: jPreloader, jQuery Easing, jQuery ScrollTo, jQuery One Page Navi -->
+<script src="_include/js/main.js"></script> <!-- Default JS -->
+<script src="js/resumable.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="js/log.js"></script>
+<script>
+
+
+
+
+
+
+</script>
+</body>
+</html>
