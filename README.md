@@ -21,9 +21,6 @@ Execution :
 	ou	
 	python main.py port
 	
-Demo :
-	browse to 137.74.115.123:8020
-	
 Info :
 	to build the c source :
 		cd path/to/project/c_src
