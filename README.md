@@ -1,4 +1,4 @@
-# Project_L2S2-Drone_Log_Analyze
+# Project L2S2 - Drone Log Analyze
 This application is a lof file analyze that detects basic problems on your drone's log file.
 This was developped by Ahmedou Galledou, Chakib Soulimas, Jethro De Jesus annd Zakariae Idrissi of the University of Paris Descartes as part of our project L2S2.
 
